@@ -1,0 +1,67 @@
+ <ion-view title="Details">
+    <ion-content padding="true" class="has-header">
+				<!-- Removed button until we make archive button<button class="button button-icon icon ion-ios-minus-outline"
+								ng-click="deleteReport();"> Delete this report permanently</button> -->
+				<div class="card">
+					<div class="item item-divider">
+						👤 Posted By
+						</div>
+					<div class="item item-text-wrap">
+						<img style="height: 30px; width: 30px; float: left; border-radius: 50%;"
+						src="img/profiles/{{ report.caregiver.pic ? report.caregiver.pic : 'def'; }}.png">
+						<span style="margin-left: 5px; line-height: 30px;">
+							{{ report.caregiver.name ? report.caregiver.name : report.caregiver; }}
+						</span>
+					</div>
+				</div>
+				<div class="card">
+					<div class="item item-divider">
+						🕓 Time & Location
+						</div>
+					<div class="item item-text-wrap">
+						{{report.time}} @
+						{{report.location}}
+					</div>
+				</div>
+				<div class="card">
+					<div class="item item-divider">
+						📰 Description
+						</div>
+					<div class="item item-text-wrap">
+						{{report.description}}
+					</div>
+				</div>
+				<div class="card">
+					<div class="item item-divider">
+						📜 Summary
+						</div>
+					<div class="item item-text-wrap">
+							{{report.summary}}
+						</div>
+				</div>
+				<div class="card">
+					<div class="item item-divider">
+						🏃 Response
+						</div>
+					<div class="item item-text-wrap">
+						{{report.response}}
+					</div>
+				</div>
+				<div class="card">
+					<div class="item item-divider">
+						❓Outcome
+						</div>
+					<div class="item item-text-wrap">
+						{{report.outcome}}
+					</div>
+				</div>
+				<div class="card">
+					<div class="item item-divider">
+						🏷 Categories
+						</div>
+					<div class="item item-text-wrap" ng-repeat="category in report.categories | filter:{ checked: true }"">
+						{{category.text}}
+					</div>
+				</div>
+    </ion-content>
+</ion-view>

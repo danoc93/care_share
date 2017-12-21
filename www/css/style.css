@@ -1,0 +1,313 @@
+.bar.bar-header {
+	background: #169DC9 !important;
+}
+
+.report_input_large{
+	style="height: 100px; 
+	margin: 0 auto;"
+}
+
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+	color:#169DC9 !important;
+}
+
+.tabs-positive > .tabs{
+	background-color: #169DC9 !important;
+}
+
+.myTabStyle:hover {
+	background-color:#169DC9 !important;
+}
+
+.scroll-content {
+	overflow: visible !important;
+}
+
+.alert{
+	margin: 0 auto;
+	margin-bottom: 5px;
+	width: 98%;
+	padding: 5px;
+	border-radius: 4px;
+}
+
+.alertGood{
+	background-color: #C4F5E4;
+}
+
+.alertNeutral{
+	background-color: #E0DBC3;
+}
+
+.thisWeekList{
+	padding: 5px;
+	margin: 2px;
+}
+
+.alertBad{
+	background-color: #F2BBC7;
+}
+
+#textAlert{
+	font-size: 11px;
+}
+
+#patientCard{
+	margin: 5px auto;
+	weight: 95%;
+	height: 45px;
+	background-color: #cDC4B7;
+}
+
+.input_label1{
+	width: 300px;
+}
+
+#patientPhoto{
+	background: url('../img/woman.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	weight: 40px;
+	margin-top: 2px;
+	margin-left: 5px;
+	height: 40px;
+	float: left;
+}
+
+.bigcontainer{
+	max-height: 120px;
+	width: 100%;
+}
+
+#patientData{
+	weight: 75%;
+	margin-left: 50px;
+	line-height: 42px;
+	height: 100%;
+}
+
+
+.content-login-block{
+	height: 100%;
+	background: url('../img/blurry.jpg');
+	background-size: cover;
+	text-align: center;
+}
+
+.data_graph{
+	height: 100%;
+	width: 100%;
+}
+
+#logo{
+	background: url("../img/conflogo_1.png");
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+	border-style: none;
+
+}
+
+.img-container {
+	position: absolute;
+	top: 0;
+	bottom: 285px;
+	left: 0;
+	right: 0;
+	display: flex; /* add */
+	justify-content: center; /* add to align horizontal */
+	align-items: center; /* add to align vertical */
+}
+
+#intro {
+	text-align: center;
+	height: 140px;
+	width: 100%;
+	background-color: #000;
+	opacity: 0.7;
+	padding-top: 26px;
+	position: absolute;
+	bottom: 145px;
+}
+
+.PEOPLE{
+	margin-top: 7px;
+}
+
+.profileBlock{
+    display:inline-block;    
+	text-align: center;
+	height: 85px;
+	width: 90px;
+	background-color: #111111;
+	margin-right: 8px;
+}
+
+.profileBlock:hover{
+    background-color: #4a4a4a; 
+    color: #FFF;
+}
+
+.profileBlockContent{
+}
+
+.profileIcon{
+	margin-top:8px;
+	height: 50px;
+	border-radius: 50%;
+	width: 50px;
+}
+
+.profileText{
+	font-weight: bold;
+	color: #fff;
+	font-size: 10px;
+}
+
+#profilePickerBlock {
+	text-align: center;
+	height: 145px;
+	width: 100%;
+	background-color: #000;
+	opacity: 0.7;
+	padding-top: 15px;
+	position: absolute;
+	top: 35%;
+}
+
+.button-gen{
+	background-color: #169DC9;
+	border-color: #FFF;
+	color: #FFF;
+}
+
+.button-hl{
+	background-color: #368770;
+	border-color: #FFF;
+	color: #FFF;
+}
+
+#options{
+	padding: 10px;
+	background-color: #169DC9;
+	height: 145px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.titleCatProfile{
+	font-weight: bold;
+	color: #169DC9;
+    display:inline-block;    
+}
+
+.titleCatUrgent{
+	font-weight: bold;
+	color: #206139;
+    display:inline-block;    
+}
+
+.titleProfileList{
+	margin: 0 auto;
+	background-color: #FFF;
+	width: 95%;
+	border-radius: 5px;
+	padding-left: 5px;
+	margin-bottom: 10px;
+}
+
+.titleEntryMain{
+	margin-left: 10px;
+	font-weight: bold;
+	width: 95%;
+	height: 25px;
+	font-size: 15px;
+	background-color: #FFF;
+	color: #169DC9;
+    display:inline-block;   
+}
+
+.bgblock{
+	padding-top: 10px;
+	padding-bottom: 6px;
+    background-image: url("../img/v1.png");
+    background-repeat: repeat;
+    margin-bottom: 10px;
+}
+
+.itemInProfileLists{
+	font-size: 13px;
+}
+
+.nothingHere{
+	margin-left: 23px;
+	font-style: italic;
+}
+
+.title{
+	color: #FFF;
+	font-size: 15px;
+}
+
+.description{
+	color: #FFF;
+	font-size: 12px;
+}
+
+.md-button {
+	color : currentColor;
+}
+.md-button:not([disabled]):hover {
+	background-color: rgba(158, 158, 158, 0.2);
+}
+.md-button[disabled] {
+	color : rgba(0, 0, 0, 0.26);
+	background-color: transparent;
+}
+
+.separator{
+	padding-left: 1px;
+	background: #FFF;
+	font-weight: bold;
+	color: #0C4F11;
+	font-size: 10px;
+	height: 10px;
+	width: 100%;
+}
+
+.course_element{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.buttons_set{
+	float: right;
+	height: 42px;
+	line-height: 42px;
+}
+
+#thisWeekContainer{
+	width: 95%;
+	margin: 0 auto;
+}
+
+.course_details{
+	font-weight: bold;
+	font-size: 15px;
+	height: 32px;
+	line-height: 32px;
+}
+
+.lowerlevel{
+	position: relative;
+	margin-left: 11px;
+}
+
+.noItemsAlert{
+	padding: 8px;
+	font-size: 13px;
+	background-color: #FFF;
+	border-color: #F0F0F0;
+	color: #0C4F11;
+}

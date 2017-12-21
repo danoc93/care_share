@@ -1,0 +1,217 @@
+<ion-view title="Care Board">
+<ion-nav-bar></ion-nav-bar>
+
+<ion-nav-buttons side="right">
+<button class="button button-clear icon ion-log-out button-light"
+ng-click="logout()"></button>
+</ion-nav-buttons>
+
+<ion-nav-buttons side="left">
+
+<div
+style="font-size: 12px; color: #FFF;">
+<div>
+	<img ng-src="img/profiles/{{ CURRENTPIC }}.png"
+	style="height: 30px; width: 30px; border-radius: 50%; ">
+	<span style="margin-left: 5px; float: right; line-height: 35px;">
+		<b style="">Hi, {{ CURRENTUSER }}</b>
+	</span>
+</div>
+</div>
+</ion-nav-buttons>
+
+<ion-content padding="true">
+
+<ion-list>
+<ion-item class="item-thumbnail-left" style="padding: 15px">
+<img ng-src="img/profiles/{{ team.patientPic ? team.patientPic : 'def'; }}.png">
+<div style="margin-left: 90px; margin-top:5px">
+	<h2>{{ team.patientName }}</h2>
+	<p>{{ team.teamID }}<br>Birthday: <b>{{ team.patientDob }}</b></p>
+</div>
+</ion-item>
+</ion-list>
+<div class="button-bar">
+	<button class="button button-stable button-block icon ion-ios-clock"
+	ng-click="showRecent()">&nbsp;</button>
+	<button class="button button-stable button-block icon ion-ios-people"
+	ng-click="showCareTeam()">&nbsp;</button>
+	<button class="button button-stable button-block icon ion-information-circled"
+	ng-click="showInfo()">&nbsp; </button>
+	<button class="button button-stable button-block icon ion-android-checkbox-outline" 
+	ng-click="showTodo()">&nbsp;</button>
+</div>
+
+<div class="card" style="margin-bottom: 1px; margin-top: 0; width:100%; margin: 0 auto;"  ng-show="!sc && !info && !todo">
+	<div class="item item-divider">
+		<span>📌 <span class="">Important</span></span>
+	</div>
+</div>
+
+<ion-list ng-hide="info || sc || todo">
+<div class="bgblock" style="width:100%; margin: 0 auto; margin-bottom: 0px;">
+	<div style="margin-bottom: 5px;" ng-show="!(reports.length > 0)">
+		<span style="margin-left: 15px">😩</span>&nbsp;<span>There isn't anything here</span>
+	</div>
+
+	<ion-item ng-repeat="object in reports | filter: {isImportant : 'true'}"
+	style="border-width: 0; padding: 5px; padding-left: 10px;
+	width: 95%; margin: 0 auto; margin-bottom: 4px; background-color: #D3E3D9;">
+
+	<span ng-hide="!object.date">
+		<span style="font-size: 13px;" class="titleCatUrgent">{{object.date}}</span>&nbsp;&nbsp;<span style="font-size: 12px;">
+		{{object.description}}</span><br>
+	</span>
+
+	</ion-item>
+</div>
+</ion-list>
+
+
+
+
+
+<div class="card" style="width:100%; margin: 0 auto; margin-bottom: 1px; margin-top:10px;" ng-show="!sc && !info && !todo">
+	<div class="item item-divider">
+		<span>🗓 <span class="">Last 3 reports</span></span>
+	</div>
+</div>
+<ion-list ng-hide="info || todo">
+<div ng-disabled="!mv" ng-show="!object.date" class="bgblock" style="width:100%; margin: 0 auto;">
+
+	<div style="margin-bottom: 5px;" ng-show="list.length == 0">
+		<span style="margin-left: 15px">😩</span>&nbsp;<span>There isn't anything here</span>
+	</div>
+
+	<ion-item ng-repeat="object in list"
+	style="border-width: 0; padding: 5px; padding-left: 10px;
+	width: 95%; margin: 0 auto; margin-bottom: 6px;">
+
+	<span ng-hide="!object.date">
+		<span style="font-size: 15px;"class="titleCatProfile">{{object.date}}</span>&nbsp;&nbsp;<span style="font-size: 13px;">{{object.description}}</span><br>
+		<span style="font-size: 10px;">👤 {{object.caregiver;}}</span>
+	</span>
+
+	<div
+	style="font-size: 12px;" ng-click="">
+	<div ng-show="sc">
+		<img style="height: 30px; width: 30px; float: left; border-radius: 50%;"
+		src="img/profiles/{{ object.pic ? object.pic : 'def'; }}.png">
+		<span style="margin-left: 5px; line-height: 35px;">
+			<span ng-show="!object.date" class="itemInProfileLists">{{ getObjectStr(object) }}</span>
+		</span>
+	</div>
+</div>
+
+
+</ion-item>
+</div>
+<button ng-show="sc" style="margin-top:10px;"
+class="button button-block button-clear ion-android-add-circle"
+style="widtH: 95%" ng-click="addCaregiver()">&nbsp; Add new caregiver</button>
+</ion-list>
+
+<ion-list ng-show="todo" style="width: 20% margin: 0;">
+<div class="bgblock" >	
+	<div class="titleProfileList">
+		<span>✅ <H4 class="titleCatProfile">To-Do List</H4></span>
+		<button style="margin: 0 auto;" class="button-clear ion-android-add-circle" ng-click="addTodo()"></button>
+	</div>
+
+<div ng-repeat="item in todoList"  >
+<div style="width: 95%; margin: 0 auto;" >
+    <ion-checkbox style="margin-botom: 5px; "ng-model="item.checked" ng-checked="item.checked" ng-click="saveTodo($index)" ng-disabled="item.completed"> 
+    <span style"font-size: 14">{{ item.text }}</span><b ng-show="!item.completed"> 
+    <br><span style="font-size: 12px;">
+    	Assigned to {{ item.assginedto }}</b></span>
+    
+</div>
+<b ng-show="item.completed" style"margin-left: 10px; margin-bottom: 5px; width: 40px;">&nbsp;&nbsp;Completed</b> </ion-checkbox>
+    <button ng-show="!item.completed" 
+    class="button button-small button-right button-dark"
+    style="margin-left: 10px" 
+    type="button" ng-click="markCompleted(item)" ng-disabled="!item.checked">Mark As Completed</button>
+</div>
+<ion-list>
+
+
+
+	</div>
+	
+</div>
+</ion-list>
+
+<ion-list ng-show="info" style="width: 20% margin: 0;">
+<div class="bgblock" >
+	<div class="titleProfileList">
+		<span>💊 <H4 class="titleCatProfile">Medication</H4></span>
+		<button style="margin: 0 auto;" class="button-clear ion-android-add-circle"
+		ng-show="mv" ng-click="addMedication()"></button>
+
+	</div>
+	<div ng-show="medicationList.length == 0" class="nothingHere">
+		You have not recorded any medication.
+	</div>
+	<div ng-repeat="medication in medicationList">
+		<ion-item style="height:25px; text-align: left;
+		margin: 0 auto; padding-top: 0; margin-bottom:3px; width: 95%;">
+		<span style-"border-width: 0" class="itemInProfileLists">{{medication}}</span></ion-item>
+	</div>
+</div>
+
+
+<div class="bgblock">
+	<div class="titleProfileList">
+		<span>🔬 <H4 class="titleCatProfile">Allergies</H4></span>
+		<button style="margin: 0 auto;" class="button-clear
+		ion-android-add-circle" ng-show="mv" ng-click="addAllergies()"></button>
+
+	</div>
+	<div ng-show="allergiesList.length == 0" class="nothingHere">
+		You have not recorded any allergies.
+	</div>
+	<div ng-repeat="allergy in allergiesList">
+		<ion-item style="height:25px; text-align: left; margin: 0 auto;
+		padding-top: 0; margin-bottom:3px; width: 95%;">
+		<span style-"border-width: 0" class="itemInProfileLists">{{allergy}}</span></ion-item>
+	</div>
+</div>
+
+
+<div ng-show="info" class="bgblock">
+	<div class="titleProfileList">
+		<span >🏥 <H4 class="titleCatProfile">Medical History</H4></span>
+		<button style="margin: 0 auto;" class="button-clear ion-android-add-circle"
+		ng-show="mv" ng-click="addMH()"></button>
+	</div>
+	<div ng-show="mhList.length == 0" class="nothingHere">
+		You have not recorded any medical history.
+	</div>
+	<div ng-repeat="mh in mhList">
+		<ion-item style="height:25px; text-align: left; margin: 0 auto;
+		padding-top: 0; margin-bottom:3px; width: 95%;">
+		<span class="itemInProfileLists">{{mh}}</ion-item>
+		</div>
+	</div>
+</ion-list>
+
+
+<button ng-show="info&&mv"
+class="button button-clear icon ion-filing button-block" style="width: 95%"
+ng-click="saveALL()">&nbsp;Save</button>
+
+<button ng-show="info&&!mv"
+class="button button-clear icon ion-android-color-palette button-block"  style="width: 95%"
+ng-click="editALL()">&nbsp;Edit information</button>
+
+
+<button ng-show="todo&&!ed" 
+class="button button-clear icon ion-android-color-palette button-block"  style="width: 95%" 
+ng-click="clearCompleted()">&nbsp;Clear Completed</button>
+
+<button ng-show="todo&&ed" 
+class="button button-clear icon ion-filing button-block" style="width: 95%"
+ng-click="saveTodo()">&nbsp;Save</button>
+
+</ion-content>
+</ion-view>

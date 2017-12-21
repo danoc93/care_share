@@ -1,0 +1,42 @@
+<ionnavbar></ions bar>
+<ion-view title="Settings">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+      <div class="list">
+
+        <div class="item item-divider">
+          Help
+        </div>
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-help-circled"></i>
+          FAQ
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-ios-glasses-outline"></i>
+          View EULA
+        </a>
+
+        <a class="item item-icon-left" href="#">
+          <i class="icon ion-email"></i>
+          Contact Us
+        </a>
+
+        <div class="item item-divider">
+          Account Settings
+        </div>
+        <li class="item item-toggle">
+          Turn On Alerts
+          <label class="toggle toggle-assertive">
+            <input type="checkbox">
+            <div class="track">
+            <div class="handle"></div>
+            </div>
+          </label>
+        </li>
+        <a type="button" ng-click="logout()" class="item item-icon-left" href="#">
+          <i class="icon ion-log-out"></i>
+          Log Out
+        </a>
+      </div>
+    </ion-content>
+</ion-view>

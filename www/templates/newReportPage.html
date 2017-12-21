@@ -1,0 +1,95 @@
+
+<ion-view title="Share">
+<ion-nav-bar>
+<ion-nav-back-button>
+</ion-nav-back-button>
+</ion-nav-bar>
+
+
+<ion-nav-buttons side="right">
+<div 
+style="font-size: 12px; color: #FFF;">
+<div>
+    <span style="margin-right: 5px; line-height: 35px; display:inline-block;">
+        <b style="">{{ CURRENTUSER }}</b>
+    </span>
+    <img ng-src="img/profiles/{{ CURRENTPIC }}.png" 
+    style="height: 30px; width: 30px; float: right; border-radius: 50%; ">
+</div>
+</div>
+</ion-nav-buttons>
+
+<ion-content padding="true" class="has-header">
+<form class="list" ng-submit="addReport(report)">
+    <label class="item item-input">
+        <span class="input-label">📝&nbsp;<b>Summary</b></span>
+        <input type="text" placeholder="Maximum 160 characters" ng-change="getTags()" ng-model="report.summary" ng-maxlength="160" ng-model-options="{debounce:1000}">
+    </label>
+    <label class="item item-input">
+        <span class="input-label">🚩&nbsp;Location</span>
+        <input type="text" placeholder="For example: Home" ng-model="report.location">
+    </label>
+    <label class="item item-input">
+        <span class="input-label">📅&nbsp;Date</span>
+        <button type="button" class="button button-block" 
+        style="width: 65%; margin: 0 auto; margin-right:10px;" ng-click="openDatePicker()" ng-model="date">{{ date }}
+    </button>
+</label>
+<label class="item item-input">
+    <span class="input-label">🕐&nbsp;Time</span>
+    <ionic-timepicker input-obj="timePickerObject" style="width: 65%; margin: 0 auto; margin-right:10px;">
+    <button type="button" class="button button-block" ng-model="time" style="margin: 0 auto;">
+        {{ time }}
+        <standard-time-meridian etime='timePickerObject.inputEpochTime'></standard-time-meridian>
+    </button>
+</ionic-timepicker>
+</label>
+<label class="item item-input">
+    <div class="bigcontainer">
+        <span class="input-label" style="color: #007399;">💬&nbsp;<b>Describe</b></span>
+        <textarea 
+        style="width: 98%; height: 80px; max-height: 80px; margin: 0;" 
+        placeholder="Briefly describe the event. What happened?" 
+        ng-model="report.description"></textarea>
+    </div>
+</label>
+
+<label class="item item-input" style="height: 120px">
+    <div class="bigcontainer">
+
+       <span class="input-label" style="color: #007399;">🚧&nbsp;<b>Response</b></span>
+       <textarea     
+       style="width: 98%; height: 80px; max-height: 80px; margin: 0;" 
+       placeholder="How did you respond to the situation?" 
+       ng-model="report.response"></textarea>
+   </div>
+</label>
+
+<label class="item item-input">
+    <div class="bigcontainer">
+        <span class="input-label" style="color: #007399;">📝&nbsp;<b>Outcome</b></span>
+        <textarea 
+        style="width: 98%; height: 80px; max-height: 80px; margin: 0;" 
+        placeholder="Describe the outcome of the event.
+        How did your care-recipient react, feel?" 
+        ng-model="report.outcome"></textarea>
+    </div>
+</label>
+
+<div id="categories">
+    <label class="item item-input">
+    <span class="input-label" >🔖&nbsp;Categories</span>
+		</label>
+		<ion-checkbox ng-repeat="category in categories" ng-model="category.checked" ng-checked="category.checked">
+        {{ category.text }}
+    </ion-checkbox>
+</div>
+<!-- Removed temporarily for simplicity <div>
+    <button type="button" ng-click="addTag()"> + </button>
+</div>-->
+<ion-toggle ng-model="report.isImportant" toggle-class="toggle-calm">📌&nbsp;Mark as Important</ion-toggle>
+<button type="submit" class="button button-stable button-block ">Add new report</button>
+</form>
+
+</ion-content>
+</ion-view>

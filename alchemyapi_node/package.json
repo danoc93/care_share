@@ -1,0 +1,17 @@
+{
+  "name": "alchemyapi_node",
+  "version": "0.10.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "main": "./alchemyapi.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "consolidate": "~0.9.1",
+    "dustjs-linkedin": "~2.0.3",
+    "express": "3.4.0",
+    "request": "~2.27.0",
+    "router": "^1.1.4"
+  }
+}

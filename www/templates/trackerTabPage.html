@@ -1,0 +1,73 @@
+<ion-view title="Behaviour Tracker">
+
+<ion-nav-bar>
+<ion-nav-buttons side="right">
+<button class="icon ion-android-clipboard button button-clear button-light" ng-click="doSomething()">
+</button>
+</ion-nav-buttons>
+
+</ion-nav-bar>   
+
+<ion-content class="general">
+<div class="card">
+	<div class="item item-divider">
+		📈 Current Bi-weekly Period Summary
+	</div>
+	<div class="item item-text-wrap">
+		<canvas radarchart data="linechart" height="180" width="320"> </canvas><br>
+	</div>
+</div>
+<div class="card">
+	<div class="item item-divider">
+		<span>🗓 This week </span>
+	</div>
+	<div id="thisWeekContainer">
+		<p>
+			<div class="noItemsAlert" ng-show="!allAlerts.length">
+				<b>There isn't anything here</b> 😩
+			</div>
+			<div ng-repeat="item in allAlerts">
+				<div class="alert {{item.type}}">
+					{{item.icon}} &nbsp; <span id="textAlert">{{item.text}}</span>
+				</div>
+			</div>
+		</p>
+	</div>
+</div>
+
+<div class="card">
+	<div class="item item-divider">
+		🕦 Explore disease progression
+	</div>
+	<div ng-hide="!linechart">
+		<div class="item item-text-wrap">
+			<canvas linechart data="progressChart" height="200" width="320">
+			</canvas><br>
+		</div>
+
+		<form class="list">
+
+			<label class="item item-input">
+				<span class="input-label">📅&nbsp;Starting date</span>
+				<button type="button" class="button button-block" 
+				style="width: 65%; margin: 0 auto; margin-right:10px;" ng-click="openDatePicker()" ng-model="date">{{ date }}
+			</button>
+		</label>
+
+		<div id="categories">
+			<label class="item item-input">
+				<span class="input-label" >🔖&nbsp;Choose a category</span>
+			</label>
+			<ion-checkbox ng-repeat="category in categories" ng-model="category.checked" ng-checked="category.checked">
+			{{ category.text }}
+		</ion-checkbox>
+	</div>
+
+</form>
+
+</div>
+<div ng-show="!linechart.length > 0" style="margin: 15px;">😩</span>&nbsp;<span>There isn't anything here</div>
+</div>
+
+</ion-content>
+</ion-view>

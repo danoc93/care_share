@@ -1,0 +1,75 @@
+<!-- Form based off of: https://scotch.io/tutorials/handling-checkboxes-and-radio-buttons-in-angular-forms -->
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- CSS -->
+    <!-- load up bootstrap and add some spacing -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style>
+        body         { padding-top:50px; }
+        form, pre    { margin-bottom:50px; }
+    </style>
+
+    <!-- JS -->
+    <!-- load up angular and our custom script -->
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<!-- apply our angular app and controller -->
+<body ng-app="formApp" ng-controller="formController">
+<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+
+    <h2>Care Tracker: </h2>
+    <form>
+
+
+        <!-- RADIO BUTTONS -->
+        <label>Monitor and track the condition of your care-recipient. If your care-recipient has recently exhibited one of the following behaviors, select it from the list below.</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="behavior" value="ML" ng-model="formData.behavior">
+                    Memory Loss
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="behavior" value="LD" ng-model="formData.behavior">
+                    Learning Difficulties
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="behavior" value="LP" ng-model="formData.behavior">
+                    Language Problems
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="behavior" value="W" ng-model="formData.behavior">
+                    Wandering
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="behavior" value="PDJ" ng-model="formData.behavior">
+                    Poor/Decreased Judgement
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="behavior" value="BMC" ng-model="formData.behavior">
+                    Behavioral/Mood Change
+                </label>
+            </div>
+        </div>
+        <!-- Must be modified tomorrow after we figure out what we're actually doing -->
+        <button type="submit" class="btn btn-danger btn-lg">Submit!</button>
+
+    </form>
+
+</div>
+</body>
+</html>

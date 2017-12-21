@@ -1,0 +1,19 @@
+<ion-view title="Choose Profile" hide-nav-bar="true">
+<div class="content-login-block">
+    <div id="profilePickerBlock">
+        <div id=text_b>
+            <span class="title">
+                👤 Who are you?
+            </span>
+            <div class="PEOPLE">
+                <div ng-repeat="a in team.caregivers" class="profileBlock">
+                    <div ng-click="setProfile(a)" class="profileBlockContent">
+                        <img class="profileIcon" ng-src="{{ getPic(a) }}">
+                        <div class='profileText'>{{ a.name }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</ion-view>

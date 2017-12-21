@@ -1,0 +1,18 @@
+{
+  "name": "myApp",
+  "app_id": "",
+  "proxies" : [
+  	{
+  		"path" : "/keywords",
+  		"proxyUrl" : "http://localhost:3000/keywords"
+  	},
+  	{
+  		"path" : "/concepts",
+  		"proxyUrl" : "http://localhost:3000/concepts"
+  	},
+  	{
+  		"path" : "/taxonomy",
+  		"proxyUrl" : "http://localhost:3000/taxonomy"
+  	}
+  ]
+}
